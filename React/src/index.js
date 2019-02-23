@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import Header from "./Components/Header/Header";
+import Loader from "./Components/Loader/Loader";
+
 import "./css/app.css";
 
 function App() {
@@ -9,11 +12,12 @@ function App() {
         <div className="page">
 
             {/*Header*/}
-            <section className="header layout--center"></section>
+            <Header/>
 
             {/*Main layout*/}
             <section className="main layout--center"></section>
 
+            <Loader/>
         </div>
     </div>
   );

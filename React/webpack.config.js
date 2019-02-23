@@ -10,9 +10,9 @@ module.exports = {
     resolve: {
         modules: [__dirname, 'node_modules'],
         alias:{
-            Mod1: 'public/components/mod1.jsx',
-            Mod2:'public/components/mod2.jsx',
-            Mod3: 'public/components/mod3.jsx'
+            Mod1: 'public/Components/mod1.jsx',
+            Mod2:'public/Components/mod2.jsx',
+            Mod3: 'public/Components/mod3.jsx'
         },
         extensions: ['*','.js','.jsx']
     },
