@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Popups extends Component {
+class Login extends Component {
     render() {
         return (
             <div className={"popup " + (this.props.isOpen ? "popup--open" : "")}>
@@ -44,4 +44,4 @@ class Popups extends Component {
     }
 }
 
-export default Popups;
+export default Login;

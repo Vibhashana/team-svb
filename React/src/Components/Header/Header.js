@@ -22,7 +22,7 @@ class Header extends Component {
                     </div>*/}
 
                     <div className="join">
-                        <span>Join</span>
+                        <span onClick={this.props.showLogin}>Join</span>
                         {/*<span>Sign Out</span>*/}
                     </div>
                 </div>
