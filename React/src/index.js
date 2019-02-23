@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from "./Components/Header/Header";
 import Loader from "./Components/Loader/Loader";
+import Login from "./Components/Popups/Login/Login";
 
 import RantList from "./Scenes/RantList";
 import RantDetails from "./Scenes/RantDetails";
@@ -28,6 +29,8 @@ function App() {
                 </section>
 
                 <Loader isLoading={false}/>
+
+                <Login/>
             </div>
         </div>
       </Router>
