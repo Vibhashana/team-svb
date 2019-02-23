@@ -6,7 +6,15 @@ import "./css/app.css";
 function App() {
   return (
     <div className="App">
-      <h1>Eyepax JavaScript Hackathon</h1>
+        <div className="page">
+
+            {/*Header*/}
+            <section className="header layout--center"></section>
+
+            {/*Main layout*/}
+            <section className="main layout--center"></section>
+
+        </div>
     </div>
   );
 }
