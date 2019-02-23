@@ -501,13 +501,18 @@ html {
   width: 100%;
   text-align: center;
 }
-.popup .popup__body .popup__body-inner .form .form__error {
+.popup .popup__body .popup__body-inner .form .form__error p {
   color: #d31c41;
   padding: 0 0 12px 0;
   text-align: center;
   width: 100%;
   font-size: 18px;
 }
+
+.popup .popup__body .popup__body-inner .form .form__error p:first-letter {
+  text-transform: capitalize;
+}
+
 .popup .popup__body .popup__body-inner input[type=submit] {
   background: transparent;
   outline: none;
