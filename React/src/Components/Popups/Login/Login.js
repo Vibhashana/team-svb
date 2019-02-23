@@ -5,7 +5,8 @@ class Login extends Component {
         return (
             <div className={"popup " + (this.props.isOpen ? "popup--open" : "")}>
                 <div className="popup__header">
-                    <div title="Close" className="close layout--center">
+                    <div title="Close" className="close layout--center"
+                         onClick={this.props.hideLogin}>
                         X
                     </div>
                 </div>

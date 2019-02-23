@@ -17,14 +17,19 @@ class App extends Component {
             showLogin: false,
             showLoader: false
         };
-        this.showLogin = this.showLogin.bind(this);
     }
 
-    showLogin() {
+    showLogin = () => {
         this.setState({
             showLogin: true
         });
-    }
+    };
+
+    hideLogin = () => {
+        this.setState({
+            showLogin: false
+        });
+    };
 
     render() {
         return (
@@ -44,7 +49,8 @@ class App extends Component {
 
                         <Loader isLoading={this.state.showLoader}/>
 
-                        <Login isOpen={this.state.showLogin}/>
+                        <Login isOpen={this.state.showLogin}
+                                hideLogin={this.hideLogin}/>
                     </div>
                 </div>
             </Router>
