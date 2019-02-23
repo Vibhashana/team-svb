@@ -30,7 +30,7 @@ function App() {
 
                 <Loader isLoading={false}/>
 
-                <Login isOpen={true}/>
+                <Login isOpen={false}/>
             </div>
         </div>
       </Router>
