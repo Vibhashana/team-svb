@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 
+import Loader from "../../Loader/Loader";
+
 class Login extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            showLoader: false
+        };
+    }
 
     render() {
         return (
@@ -27,9 +36,7 @@ class Login extends Component {
                                     <input type="text" placeholder="USERNAME" ref={(input) => { this.usernameInput = input }}/>
                                     <input type="password" placeholder="PASSWORD"/>
 
-                                    <div className="loader">
-                                        <div className="spinner"></div>
-                                    </div>
+                                    <Loader isLoading={this.state.showLoader}/>
 
                                     <div className="form__error">
                                         Some fields are missing !
