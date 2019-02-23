@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 class Login extends Component {
+
     render() {
         return (
             <div className={"popup " + (this.props.isOpen ? "popup--open" : "")}>
@@ -23,7 +24,7 @@ class Login extends Component {
                             <form name="login">
                                 <div className="login">
 
-                                    <input type="text" placeholder="USERNAME"/>
+                                    <input type="text" placeholder="USERNAME" ref={(input) => { this.usernameInput = input }}/>
                                     <input type="password" placeholder="PASSWORD"/>
 
                                     <div className="loader">
@@ -42,6 +43,10 @@ class Login extends Component {
                 </div>
             </div>
         );
+    }
+
+    componentDidUpdate() {
+        this.usernameInput.focus();
     }
 }
 
