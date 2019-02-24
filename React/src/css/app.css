@@ -513,7 +513,8 @@ html {
   text-transform: capitalize;
 }
 
-.popup .popup__body .popup__body-inner input[type=submit] {
+.popup .popup__body .popup__body-inner input[type=submit],
+.popup .popup__body .popup__body-inner .btn {
   background: transparent;
   outline: none;
   border: 1px solid #fd2954;

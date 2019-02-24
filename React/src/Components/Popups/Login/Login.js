@@ -24,7 +24,6 @@ class Login extends Component {
     }
 
     handleUserInput (e) {
-        console.log('a');
         const name = e.target.name;
         const value = e.target.value;
         this.setState({[name]: value},
@@ -40,24 +39,42 @@ class Login extends Component {
 
         switch(fieldName) {
             case 'username':
-                userValid = value.length <= 0;
-                fieldValidationErrors.username = userValid ? '' : ' is required';
+                userValid = value === '';
+                fieldValidationErrors.username = userValid ? ' is required' : '';
                 break;
             case 'password':
-                passwordValid = value.length >= 6;
-                fieldValidationErrors.password = passwordValid ? '': ' is too short';
+                passwordValid = value === '';
+                fieldValidationErrors.password = passwordValid ? ' is required': '';
                 break;
             default:
                 break;
         }
         this.setState({formErrors: fieldValidationErrors,
-            emailValid: userValid,
+            userValid: userValid,
             passwordValid: passwordValid
         }, this.validateForm);
+
+        console.log(userValid, passwordValid);
     }
 
     validateForm() {
         this.setState({formValid: this.state.userValid && this.state.passwordValid});
+    }
+
+    submitForm = function (e) {
+        e.preventDefault();
+
+        this.validateField(this.usernameInput.name, this.usernameInput.value);
+        this.validateField(this.passwordInput.name, this.passwordInput.value);
+
+        //console.log(this.state.formValid);
+
+        if(this.state.formValid) {
+            alert('OK');
+        } else {
+            alert('no');
+        }
+
     }
 
     render() {
@@ -89,6 +106,7 @@ class Login extends Component {
                                            onChange={(event) => this.handleUserInput(event)}/>
 
                                     <input type="password" placeholder="PASSWORD"
+                                           ref={(input) => { this.passwordInput = input }}
                                            value={this.state.password}
                                            name="password"
                                            onChange={(event) => this.handleUserInput(event)}/>
@@ -97,8 +115,8 @@ class Login extends Component {
 
                                     <FormErrors formErrors={this.state.formErrors}/>
 
-                                    <input type="submit" value="LET ME IN"
-                                           disabled={!this.state.formValid}/>
+                                    <input type="submit"
+                                           onClick={(event) => this.submitForm(event)} value="LET ME IN"/>
                                 </div>
                             </form>
                         </div>
