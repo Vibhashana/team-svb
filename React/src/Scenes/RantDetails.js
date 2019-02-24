@@ -1,6 +1,30 @@
 import React, {Component} from 'react';
 
+import Loader from '../Components/Loader/Loader';
+import AddComment from '../Components/Popups/AddComment/AddComment';
+
 class RantDetails extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            showLoader: false,
+            showAddCommentPopup: false,
+        };
+    }
+
+    showAddCommentPopup = () => {
+        this.setState({
+            showAddCommentPopup: true
+        });
+    };
+
+    hideAddCommentPopup = () => {
+        this.setState({
+            showAddCommentPopup: false
+        });
+    };
+
     render() {
 
         return (
@@ -66,7 +90,8 @@ class RantDetails extends Component {
 
                 </section>
 
-                <div className="rant__comment layout--center" title="Comment">
+                <div className="rant__comment layout--center" title="Comment"
+                     onClick={this.showAddCommentPopup}>
                     <svg className="icon" viewBox="0 0 31 32" width="100%" height="100%">
                         <path d="M24.732 24.371v7.629l-7.267-7.267h-8.808c-4.781
                             0-8.657-3.875-8.657-8.657v-7.42c0-4.781 3.876-8.657
@@ -74,6 +99,11 @@ class RantDetails extends Component {
                             3.922-2.61 7.23-6.186 8.294z"></path>
                     </svg>
                 </div>
+
+                <Loader isLoading={this.state.showLoader}/>
+
+                <AddComment isOpen={this.state.showAddCommentPopup}
+                            close={this.hideAddCommentPopup}/>
 
             </div>
         );

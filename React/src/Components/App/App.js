@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
+import Alert from "../Popups/Alert/Alert";
 import Login from "../Popups/Login/Login";
 
 import RantList from "../../Scenes/RantList";
@@ -15,7 +16,14 @@ class App extends Component {
         super(props);
         this.state = {
             showLogin: false,
-            showLoader: false
+            showLoader: false,
+
+            showAlert: false,
+
+            alert: {
+                title: 'sss',
+                description: 'sssssssssssss'
+            }
         };
     }
 
@@ -28,6 +36,12 @@ class App extends Component {
     hideLogin = () => {
         this.setState({
             showLogin: false
+        });
+    };
+
+    hideAlert = () => {
+        this.setState({
+            showAlert: false
         });
     };
 
@@ -51,6 +65,11 @@ class App extends Component {
 
                         <Login isOpen={this.state.showLogin}
                                 hideLogin={this.hideLogin}/>
+
+                        <Alert show={this.state.showAlert}
+                                title={this.state.alert.title}
+                                description={this.state.alert.description}
+                                close={this.hideAlert}/>
                     </div>
                 </div>
             </Router>
